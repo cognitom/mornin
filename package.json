@@ -2,12 +2,13 @@
   "name": "mornin",
   "version": "0.1.0",
   "description": "Check-in! Mornin'!",
-  "bin": "lib/cli.js",
+  "bin": "mornin.js",
   "files": [
-    "lib",
+    "mornin.js",
     "sound"
   ],
   "scripts": {
+    "build": "rollup -c",
     "start": "sudo node --require reify --require async-to-gen/register src/cli.js",
     "check": "sudo node --require reify --require async-to-gen/register src/cli.js check"
   },
@@ -21,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "mz": "^2.6.0",
+    "node-hid": "^0.5.4",
     "node-hid-stream": "0.0.2",
     "play-sound": "^1.1.1",
     "request": "^2.81.0",
@@ -28,6 +30,8 @@
   },
   "devDependencies": {
     "async-to-gen": "^1.3.2",
-    "reify": "^0.6.8"
+    "reify": "^0.6.8",
+    "rollup": "^0.41.6",
+    "rollup-plugin-async": "^1.2.0"
   }
 }

@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import mornin from './mornin.js'
 import check from './check.js'
 
