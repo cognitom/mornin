@@ -1,6 +1,6 @@
 {
   "name": "mornin",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Check-in! Mornin'!",
   "bin": "dist/mornin.js",
   "files": [
