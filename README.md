@@ -2,7 +2,7 @@
 
 > Check-in! Mornin'!
 
-`mornin` was made for a simple check-in system for our coworkers, and this is just a kind of data logger to Google Forms basically.
+`mornin` was made for a simple check-in system for our coworkers, and this is just a kind of data logger, and the data will be posted into Google Forms directly.
 
 Imagine that there's a card reader connected to a RasPi at the counter in your office. In the morning, you will come to the office and touch your card to the reader. That's it!
 
