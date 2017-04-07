@@ -8,6 +8,7 @@
     "sound"
   ],
   "scripts": {
+    "publish": "npm run build",
     "build": "rollup -c",
     "start": "sudo node --require reify --require async-to-gen/register src/cli.js",
     "check": "sudo node --require reify --require async-to-gen/register src/cli.js check"
