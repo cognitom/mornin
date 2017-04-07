@@ -82,6 +82,8 @@ Start `mornin`.
 $ sudo mornin
 ```
 
+`sudo` is needed to access your HID hardware.
+
 You may need to consider to use [forever](https://www.npmjs.com/package/forever) to keep it up.
 
 ## Check-in history
