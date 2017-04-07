@@ -7,7 +7,7 @@ const external = Object.keys(pkg.dependencies).concat('path', 'os', 'mz/fs')
 
 export default {
   entry: 'src/cli.js',
-  dest: 'mornin.js',
+  dest: 'dist/mornin.js',
   banner: '#!/usr/bin/env node\n',
   format: 'cjs',
   external,

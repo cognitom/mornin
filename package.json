@@ -2,9 +2,9 @@
   "name": "mornin",
   "version": "0.1.3",
   "description": "Check-in! Mornin'!",
-  "bin": "mornin.js",
+  "bin": "dist/mornin.js",
   "files": [
-    "mornin.js",
+    "dist",
     "sound"
   ],
   "scripts": {
