@@ -43,7 +43,7 @@ async function readConfig (file) {
 }
 
 async function checkIn (formId, fieldId, cardNumber) {
-  const soundDir = join(dirname(__dirname), 'sound')
+  const soundDir = join(dirname(__dirname), 'sounds')
   console.log(`card scanned: ${cardNumber}`)
   try {
     const uri = `${apiBaseUrl}/${formId}/formResponse?${fieldId}=${cardNumber}`
