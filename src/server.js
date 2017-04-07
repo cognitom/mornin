@@ -13,18 +13,22 @@ const configFile = '.mornin.json'
 const player = playSound()
 
 export default async function start () {
-  const config = await readConfig(join(homedir(), configFile))
-  const scanner = new KeyboardLines({
-    vendorId: config.vendorId,
-    productId: config.productId
-  })
+  try {
+    const config = await readConfig(join(homedir(), configFile))
+    const scanner = new KeyboardLines({
+      vendorId: config.vendorId,
+      productId: config.productId
+    })
 
-  scanner.on('data', data => checkIn(config.formId, config.fieldId, data))
-  scanner.on('error', err => console.log('scanner error', err))
-  process.on('exit', () => scanner.close())
-  process.on('SIGINT', () => scanner.close())
+    scanner.on('data', data => checkIn(config.formId, config.fieldId, data))
+    scanner.on('error', err => console.log('scanner error', err))
+    process.on('exit', () => scanner.close())
+    process.on('SIGINT', () => scanner.close())
 
-  console.log('touch your card...')
+    console.log('touch your card...')
+  } catch (err) {
+    console.log("Error: couldn't open the device. Try sudo.")
+  }
 }
 
 async function readConfig (file) {
