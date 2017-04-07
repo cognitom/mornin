@@ -5,7 +5,7 @@
   "bin": "dist/mornin.js",
   "files": [
     "dist",
-    "sound"
+    "sounds"
   ],
   "scripts": {
     "prepublish": "npm run build",
