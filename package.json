@@ -8,6 +8,7 @@
     "sounds"
   ],
   "scripts": {
+    "test": "standard src/*.js",
     "prepublish": "npm run build",
     "build": "rollup -c",
     "start": "sudo node --require reify --require async-to-gen/register src/cli.js",
@@ -33,6 +34,7 @@
     "async-to-gen": "^1.3.2",
     "reify": "^0.6.8",
     "rollup": "^0.41.6",
-    "rollup-plugin-async": "^1.2.0"
+    "rollup-plugin-async": "^1.2.0",
+    "standard": "^10.0.1"
   }
 }
