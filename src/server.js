@@ -1,20 +1,16 @@
 import {dirname, join} from 'path'
-import {homedir} from 'os'
 import request from 'request-promise-native'
 import playSound from 'play-sound'
-import {readFile} from 'mz/fs'
 import {KeyboardLines} from 'node-hid-stream'
 
 const apiBaseUrl = 'https://docs.google.com/forms/d/e'
 const okSoundFile = '320655__rhodesmas__level-up-01.wav'
 const ngSoundFile = '106727__kantouth__cartoon-bing-low.wav'
-const configFile = '.mornin.json'
 
 const player = playSound()
 
-export default async function start () {
+export default async function start (config) {
   try {
-    const config = await readConfig(join(homedir(), configFile))
     const scanner = new KeyboardLines({
       vendorId: config.vendorId,
       productId: config.productId
@@ -25,26 +21,16 @@ export default async function start () {
     process.on('exit', () => scanner.close())
     process.on('SIGINT', () => scanner.close())
 
-    console.log('touch your card...')
+    console.log('Touch your card...')
   } catch (err) {
-    console.log("Error: couldn't open the device. Try sudo.")
-  }
-}
-
-async function readConfig (file) {
-  try {
-    const data = await readFile(file, 'utf8')
-    const config = JSON.parse(data)
-    return config
-  } catch (err) {
-    console.log(`Put your config file to ${file}`)
-    throw err
+    console.log("Error: couldn't open the device.")
+    if (!process.env.SUDO_USER) console.log('Try sudo.')
   }
 }
 
 async function checkIn (formId, fieldId, cardNumber) {
   const soundDir = join(dirname(__dirname), 'sounds')
-  console.log(`card scanned: ${cardNumber}`)
+  console.log(`- card scanned: ${cardNumber}`)
   try {
     const uri = `${apiBaseUrl}/${formId}/formResponse?${fieldId}=${cardNumber}`
     const response = await request({uri, resolveWithFullResponse: true})
