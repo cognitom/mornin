@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {join} from 'path'
 import {homedir} from 'os'
 import {readFile} from 'mz/fs'
