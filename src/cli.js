@@ -19,8 +19,7 @@ async function main () {
 }
 
 async function getHome () {
-  const su = process.env.SUDO_USER
-  if (!su) return homedir()
+  if (!process.env.SUDO_USER) return homedir()
 
   const result = await exec(`echo ~${process.env.SUDO_USER}`)
   const home = result[0].trim()

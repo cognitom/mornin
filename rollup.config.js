@@ -3,7 +3,9 @@ import {readFileSync} from 'fs'
 import asyncToGen from 'rollup-plugin-async'
 
 const pkg = JSON.parse(readFileSync(join(__dirname, 'package.json')))
-const external = Object.keys(pkg.dependencies).concat('path', 'os', 'mz/fs')
+const deps = Object.keys(pkg.dependencies)
+const more = ['path', 'os', 'mz/fs', 'mz/child_process']
+const external = deps.concat(more)
 
 export default {
   entry: 'src/cli.js',

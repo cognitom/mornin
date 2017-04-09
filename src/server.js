@@ -9,7 +9,7 @@ const ngSoundFile = '106727__kantouth__cartoon-bing-low.wav'
 
 const player = playSound()
 
-export default async function start (config) {
+export default async function server (config) {
   try {
     const scanner = new KeyboardLines({
       vendorId: config.vendorId,
